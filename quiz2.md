@@ -28,5 +28,5 @@ Brain volume for adult women is normally distributed with a mean of about 1,100 
 # Question 4
 Refer to the previous question. Brain volume for adult women is about 1,100 cc for women with a standard deviation of 75 cc. Consider the sample mean of 100 random adult women from this population. What is the 95th percentile of the distribution of that sample mean?
 
-## Solution to Question 3
+## Solution to Question 4
 ```
