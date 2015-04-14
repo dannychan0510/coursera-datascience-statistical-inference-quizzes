@@ -30,3 +30,20 @@ Refer to the previous question. Brain volume for adult women is about 1,100 cc f
 
 ## Solution to Question 4
 ```
+> x <- qnorm(0.95)
+> (x * (75 / sqrt(100))) + 1100
+[1] 1112.336
+```
+
+# Question 5
+You flip a fair coin 5 times, about what's the probability of getting 4 or 5 heads?
+
+## Solution to Question 5
+```
+> pbinom(3, 5, 0.5, lower.tail = FALSE)
+[1] 0.1875
+> choose(5, 4) * 0.5^5 + choose(5, 5) * 0.5^5
+[1] 0.1875
+```
+```
+
