@@ -88,3 +88,16 @@ Suppose that 18 obese subjects were randomized, 9 each, to a new diet pill and a
 
 ### Solution to Question 7
 ```
+> xbar_placebo <- 1
+> var_placebo <- 1.8^2
+> n_placebo <- 9
+> 
+> xbar_treatment <- -3
+> var_treatment <- 1.5^2
+> n_treatment <- 9
+> 
+> pooled_var <- (((n_placebo - 1)*var_placebo) + ((n_treatment - 1)*var_treatment)) / (n_placebo + n_treatment - 2)
+> 
+> (xbar_treatment - xbar_placebo) + c(-1, 1) * qt(0.95, n_placebo + n_treatment - 2) * sqrt(pooled_var) * sqrt((1 / n_placebo) + (1 / n_treatment))
+[1] -5.363579 -2.636421
+```
