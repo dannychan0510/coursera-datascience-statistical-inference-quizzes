@@ -58,3 +58,33 @@ Suppose that you create a 95% T confidence interval. You then create a 90% inter
 
 ### Solution to Question 5
 ```
+The interval will be narrower.
+```
+
+
+## Question 6
+To further test the hospital triage system, administrators selected 200 nights and randomly assigned a new triage system to be used on 100 nights and a standard system on the remaining 100 nights. They calculated the nightly median waiting time (MWT) to see a physician. The average MWT for the new system was 4 hours with a standard deviation of 0.5 hours while the average MWT for the old system was 6 hours with a standard deviation of 2 hours. Consider the hypothesis of a decrease in the mean MWT associated with the new treatment. What does the 95% independent group confidence interval with unequal variances suggest vis a vis this hypothesis? (Because there's so many observations per group, just use the Z quantile instead of the T.)
+
+### Solution to Question 6
+```
+> xbar_old <- 6
+> var_old <- 2
+> n_old <- 100
+> 
+> xbar_new <- 4
+> var_new <- 0.5
+> n_new <- 100
+> 
+> pooled_var <- (((n_old - 1)*var_old) + ((n_new - 1)*var_new)) / (n_old + n_new - 2)
+> 
+> (xbar_old - xbar_new) + c(-1, 1) * qt(0.975, n_old + n_new - 2) * sqrt(pooled_var) * sqrt((1 / n_old) + (1 / n_new))
+[1] 1.688197 2.311803
+
+When subtracting (old - new) the interval is entirely above zero. The new system appears to be effective.
+```
+
+## Question 7
+Suppose that 18 obese subjects were randomized, 9 each, to a new diet pill and a placebo. Subjects’ body mass indices (BMIs) were measured at a baseline and again after having received the treatment or placebo for four weeks. The average difference from follow-up to the baseline (followup - baseline) was −3 kg/m2 for the treated group and 1 kg/m2 for the placebo group. The corresponding standard deviations of the differences was 1.5 kg/m2 for the treatment group and 1.8 kg/m2 for the placebo group. Does the change in BMI over the four week period appear to differ between the treated and placebo groups? Assuming normality of the underlying data and a common population variance, calculate the relevant *90%* t confidence interval. Subtract in the order of (Treated - Placebo) with the smaller (more negative) number first.
+
+### Solution to Question 7
+```
