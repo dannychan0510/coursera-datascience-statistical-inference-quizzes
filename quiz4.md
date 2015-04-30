@@ -31,3 +31,44 @@ sample estimates:
 mean of the differences 
                     3.4 
   ```
+
+
+## Question 2
+A sample of 9 men yielded a sample average brain volume of 1,100cc and a standard deviation of 30cc. What is the complete set of values of μ0 that a test of H0:μ=μ0 would fail to reject the null hypothesis in a two sided 5% Students t-test?
+
+### Solution to Question 2
+```
+> n <- 9 
+> m0 <- 1100
+> sd <- 30
+> 
+> m0 + c(-1, 1) * qt(.975, n - 1) * sd / sqrt(n)
+[1] 1076.94 1123.06
+```
+
+
+## Question 3
+Researchers conducted a blind taste test of Coke versus Pepsi. Each of four people was asked which of two blinded drinks given in random order that they preferred. The data was such that 3 of the 4 people chose Coke. Assuming that this sample is representative, report a P-value for a test of the hypothesis that Coke is preferred to Pepsi using a one sided exact test.
+
+### Solution to Question 3
+```
+binom.test(3, 4, alt= "greater")$p.value
+```
+
+
+## Question 4
+Infection rates at a hospital above 1 infection per 100 person days at risk are believed to be too high and are used as a benchmark. A hospital that had previously been above the benchmark recently had 10 infections over the last 1,787 person days at risk. About what is the one sided P-value for the relevant test of whether the hospital is *below* the standard?
+
+### Solution to Question 4
+```
+poisson.test(x = 10, T = 1787, r = 1/100, alternative = "less")$p.value
+```
+
+
+# Question 5
+Suppose that 18 obese subjects were randomized, 9 each, to a new diet pill and a placebo. Subjects’ body mass indices (BMIs) were measured at a baseline and again after having received the treatment or placebo for four weeks. The average difference from follow-up to the baseline (followup - baseline) was −3 kg/m2 for the treated group and 1 kg/m2 for the placebo group. The corresponding standard deviations of the differences was 1.5 kg/m2 for the treatment group and 1.8 kg/m2 for the placebo group. Does the change in BMI appear to differ between the treated and placebo groups? Assuming normality of the underlying data and a common population variance, give a pvalue for a two sided t test.
+
+### Solution to Question 5
+```
+
+```
