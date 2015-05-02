@@ -3,13 +3,13 @@
 ## Question 1
 A pharmaceutical company is interested in testing a potential blood pressure lowering medication. Their first examination considers only subjects that received the medication at baseline then two weeks later. The data are as follows (SBP in mmHg)
 
-|Subject  |	Baseline  |Week 2 |
-|:-------:|:---------:|:-----:|
-|1	      |140	      |132    |
-|2	      |138        |135    |
-|3	      |150	      |151    |
-|4	      |148	      |146    |
-|5	      |135	      |130    |
+|Subject  |Baseline  |Week 2 |
+|:-------:|:--------:|:-----:|
+|1	  |140	     |132    |
+|2        |138       |135    |
+|3        |150	     |151    |
+|4	  |148	     |146    |
+|5	  |135	     |130    |
 
 Consider testing the hypothesis that there was a mean reduction in blood pressure? Give the P-value for the associated two sided T test.
 
@@ -70,5 +70,15 @@ Suppose that 18 obese subjects were randomized, 9 each, to a new diet pill and a
 
 ### Solution to Question 5
 ```
+> se <- sqrt((1.5^2 * 8 + 1.8^2 * 8) / 16 * (1/9 + 1/9)) 
+> z <- (-3 + 1) / se
+> pnorm(z) * 2
+[1] 0.01044502
+```
 
+
+## Question 6
+Brain volumes for 9 men yielded a 90% confidence interval of 1,077 cc to 1,123 cc. Would you reject in a two sided 5% hypothesis test of H0:μ=1,078?
+
+### Solution to Question 6
 ```
