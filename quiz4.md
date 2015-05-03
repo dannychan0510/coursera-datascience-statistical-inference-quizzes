@@ -70,10 +70,17 @@ Suppose that 18 obese subjects were randomized, 9 each, to a new diet pill and a
 
 ### Solution to Question 5
 ```
-> se <- sqrt((1.5^2 * 8 + 1.8^2 * 8) / 16 * (1/9 + 1/9)) 
-> z <- (-3 + 1) / se
-> pnorm(z) * 2
-[1] 0.01044502
+n_y <- 9 # subjects treated
+n_x <- 9 # subjects placebo
+σ_y <- 1.5# kg/m2 std.dev. treated 
+σ_x <- 1.8# kg/m2 std.dev. placebo 
+μ_y <- -3#  kg/m2 average difference treated
+μ_x <- 1#  kg/m2 average difference placebo
+
+# calculate pooled standard deviation
+σ_p <- (((n_x - 1) * σ_x^2 + (n_y - 1) * σ_y^2)/(n_x + n_y - 2))
+pval <- pt((μ_y - μ_x) / (σ_p * (1 / n_x + 1 / n_y)^.5), df=n_y + n_x -2)
+pval
 ```
 
 
