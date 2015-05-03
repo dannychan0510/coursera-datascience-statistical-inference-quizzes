@@ -82,3 +82,47 @@ Brain volumes for 9 men yielded a 90% confidence interval of 1,077 cc to 1,123 c
 
 ### Solution to Question 6
 ```
+H0: μ = 1,078 falls in the 1077 - 1123 range. So no.
+No you wouldn't reject.
+```
+
+
+## Question 7
+Researchers would like to conduct a study of 100 healthy adults to detect a four year mean brain volume loss of .01 mm3. Assume that the standard deviation of four year volume loss in this population is .04 mm3. About what would be the power of the study for a 5% one sided test versus a null hypothesis of no volume loss?
+
+### Solution to Question 7
+```
+n <- 100 #subject
+μ <- 0.01# m^3 brain volume loss mean
+σ <- 0.04# m^3 brain volume loss std. dev.
+p <- 0.05 # sign level
+
+pow <- power.t.test(n=n, delta=μ, sd=σ , sig.level=p, type="one.sample", alt="one.sided")$power
+round(pow, 2)
+```
+
+
+## Question 8
+Researchers would like to conduct a study of n healthy adults to detect a four year mean brain volume loss of .01 mm3. Assume that the standard deviation of four year volume loss in this population is .04 mm3. About what would be the value of n needded for 90% power of type one error rate of 5% one sided test versus a null hypothesis of no volume loss?
+
+### Solution to Question 8
+```
+μ <- 0.01# m^3 brain volume loss mean
+σ <- 0.04# m^3 brain volume loss std. dev.
+p <- 0.05 # sign level
+pow <- 0.9 #power
+
+n <- power.t.test(power=pow, delta=μ, sd=σ , sig.level=p, type="one.sample", alt="one.sided")$n
+ceiling(n/10)*10
+```
+
+
+## Question 9
+As you increase the type one error rate, α, what happens to power?
+
+### Solution to Question 9
+```
+You will get larger power.
+```
+
+
